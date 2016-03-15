@@ -12,18 +12,18 @@ xmlstarlet saxon augeas bsdtar tar unzip curl wget
 
 ### Working directory
 
-base user is `tkit` withe home directory `/home/tkit`
+Base user is `tkit` withe home directory `/home/tkit`.
 This image has the working directory set to `/opt/tkit`.
 
 ### Availability
 
-The `Dockerfile` is available in the `master` branch and is built in the Docker HUB as `1000kit/base:latest`.
+The `Dockerfile` is available in the `master` branch and is built in the Docker HUB as `1000kit/docker-base:latest`.
 
 ## Build Image
 
 Take a Dockerfile and build with the default arguments:
 
 ~~~~
-$ docker build -t 1000kit/base .
+$ docker build -t 1000kit/docker-base .
 ~~~~
 

@@ -3,7 +3,7 @@ FROM centos:7
 MAINTAINER 1000kit <docker@1000kit.org>
 
 LABEL Vendor="1000kit"
-LABEL License=GPLv2
+LABEL License=GPLv3
 LABEL Version=1.0.0
 
 
