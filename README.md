@@ -17,13 +17,14 @@ This image has the working directory set to `/opt/tkit`.
 
 ### Availability
 
-The `Dockerfile` is available in the `master` branch and is built in the Docker HUB as `1000kit/docker-base:latest`.
+The `Dockerfile` is available in the `master` branch and is built in the Docker HUB as `1000kit/base:latest`.
 
 ## Build Image
 
 Take a Dockerfile and build with the default arguments:
 
 ~~~~
-$ docker build -t 1000kit/docker-base .
+$ docker build -t 1000kit/base .
 ~~~~
 
+or simply use the `build.sh` script
