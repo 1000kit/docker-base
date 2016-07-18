@@ -9,7 +9,7 @@ LABEL Version=1.0.0
 
 # Install packages necessary to run EAP
 RUN  yum update -y \
-   && yum -y install xmlstarlet saxon augeas bsdtar tar unzip curl wget \
+   && yum -y install xmlstarlet saxon augeas bsdtar tar unzip curl wget less\
    && yum clean all
 
 # Create a user and group used to launch processes
@@ -22,9 +22,16 @@ RUN groupadd -r tkit -g 1000 \
  && chmod -R 755 /home/tkit \
  && mkdir /opt/tkit \
  && chown -R tkit:tkit /opt/tkit \
- && chmod 755 /opt/tkit
+ && chmod 755 /opt/tkit \
+ && echo 'tkit ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
-RUN echo 'tkit ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+## install GOSU
+RUN curl -L https://github.com/tianon/gosu/releases/download/1.9/gosu-amd64 -o /usr/sbin/gosu \
+	&& chmod 0755 /usr/sbin/gosu ; chmod 755 /usr/sbin/gosu ; chmod u+s /usr/sbin/gosu \
+	&& echo "testing gosu with tkit ..." \
+	&& /usr/sbin/gosu tkit echo " gosu installed and works"
+	 
+
 
 # Set the working directory to tkit user home directory
 WORKDIR /opt/tkit
