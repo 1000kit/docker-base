@@ -9,7 +9,7 @@ LABEL Vendor="1000kit" \
 
 # Install packages necessary to run EAP
 RUN  yum update -y \
-   && yum -y install xmlstarlet saxon augeas bsdtar tar unzip curl wget less\
+   && yum -y install xmlstarlet saxon augeas bsdtar tar unzip curl wget less dos2unix gettext \
    && yum clean all
 
 # Create a user and group used to launch processes
