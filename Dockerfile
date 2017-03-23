@@ -18,7 +18,7 @@ RUN  yum update -y \
 # making it easier to use volumes (no permission issues)
 
 RUN groupadd -r tkit -g 1000 \
- && useradd -u 1000 -r -g tkit -m -d /home/tkit -s /sbin/nologin -c "tkit user" tkit \
+ && useradd -u 1000 -r -g tkit -m -d /home/tkit -s /bin/bash -c "tkit user" tkit \
  && chmod -R 755 /home/tkit \
  && mkdir /opt/tkit \
  && chown -R tkit:tkit /opt/tkit \
