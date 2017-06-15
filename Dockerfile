@@ -10,7 +10,9 @@ LABEL Vendor="1000kit" \
 # Install packages necessary to run EAP
 RUN  yum update -y \
    && yum -y install xmlstarlet saxon augeas bsdtar tar unzip curl wget less dos2unix gettext \
-   && yum clean all
+   && yum clean all \
+   && echo "Europe/Berlin" > /etc/timezone \
+   && cd /etc/ ; rm /etc/localtime && ln -s ../usr/share/zoneinfo/Europe/Berlin ./localtime
 
 # Create a user and group used to launch processes
 # The user ID 1000 is the default for the first "regular" user on Fedora/RHEL,
